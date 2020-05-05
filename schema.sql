@@ -1,1 +1,65 @@
-p p p p p
+CREATE TABLE unit_id(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    NAME VARCHAR(20)
+); INSERT INTO unit_id(id, NAME)
+VALUES(NULL, 'Magaz1'),(NULL, 'ROZ MAGAZ 10'),(NULL, 'Sklad1'),(NULL, 'Sklad2'),(NULL, 'Sklad3');
+CREATE TABLE telephone(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    telephone VARCHAR(20)
+); INSERT INTO telephone(id, telephone)
+VALUES(NULL, '241-09-09'),(NULL, '333-44-44'),(NULL, '222-35-33'),(NULL, '320-90-90');
+CREATE TABLE item_id(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    item_id BIGINT
+); INSERT INTO item_id(id, item_id)
+VALUES(NULL, 121122211212),(NULL, 219382378454),(NULL, 434556788767),(NULL, 876567543456);
+
+CREATE TABLE item(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    NAME VARCHAR(20)
+); INSERT INTO item_name(id, NAME)
+VALUES(NULL, 'Game Boy 1M'),(NULL, 'Sega 4M'),(NULL, 'SPC-011 (5 in 1)'),(NULL, 'Battle master');
+
+
+
+CREATE TABLE num(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    cnt INT
+); INSERT INTO num (id, cnt)
+VALUES(NULL, 2000),(NULL, 2332),(NULL, 11222),(NULL, 12343),(NULL, 23),(NULL, 8891),(NULL,34),(NULL,22343),(NULL,1000),(NULL,1133),(NULL,7666),(NULL,12321);
+CREATE TABLE PRICE(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    cnt INT 
+); INSERT INTO PRICE (id, cnt)
+VALUES(NULL, 115),(NULL, 100),(NULL, 250),(NULL, 12343),(NULL, 23),(NULL, 8891),(NULL,34),(NULL,22343),(NULL,1000),(NULL,1133),(NULL,7666),(NULL,12321);
+CREATE TABLE income_date(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    d DATE
+); INSERT INTO income_date (id, d)
+VALUES(NULL, 2002-11-12),(NULL, 2003-11-10),(NULL, 2003-11-04),(NULL, 2003-12-10),(NULL, 2003-11-17),(NULL, 2003-01-02);
+
+CREATE TABLE SENDER (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    sender VARCHAR
+); INSERT INTO SENDER (id, sender)
+VALUES(NULL, "Vimpel"),(NULL, "Saturn"),(NULL, "Spring"),(NULL, "Sokol"),(NULL, "Zarya"),(NULL, "Master");
+
+
+CREATE TABLE ALLINCLUSIVE(
+    unit_id_id INT,
+    FOREIGN KEY(unit_id_id) REFERENCES unit_id(id),
+    telephone_id INT,
+    FOREIGN KEY(telephone_id) REFERENCES telephone(id),
+    item_id_id INT,
+    FOREIGN KEY(item_id_id) REFERENCES item_id(id),
+    item_name_id INT,
+    FOREIGN KEY(item_name_id) REFERENCES item_name(id),
+    num_id INT,
+    FOREIGN KEY(num_id) REFERENCES num(id),
+    PRICE_id INT,
+    FOREIGN KEY(PRICE_id) REFERENCES PRICE(id),
+    income_date_id INT,
+    FOREIGN KEY(income_date_id) REFERENCES income_date(id),
+    SENDER_id INT,
+    FOREIGN KEY(SENDER_id) REFERENCES SENDER(id)
+);
